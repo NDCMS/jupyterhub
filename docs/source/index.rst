@@ -23,12 +23,14 @@ Jupyterhub Service on Earth
 ***************************
 
 This service can be accessed via https://earth.crc.nd.edu:49000
+
 Users need an account on this login node at the CRC.
 
 Frequently Asked Questions
 ===========================
 
 1. Jupyter notebook database issues
+
 If you get the following error::
 
     Unexpected error while saving file: coffea_tests/Untitled.ipynb database disk image is malformed
