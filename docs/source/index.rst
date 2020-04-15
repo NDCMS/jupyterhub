@@ -44,6 +44,7 @@ b. Then, SSH into earth and run::
 c. Come back to your browser and try again.
 
 2. AFS issues
+
 The error::
 
     "Spawn failed: Server at http://127.0.0.1:35083/user/btovar/ didn't respond in 30 seconds"
