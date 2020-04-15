@@ -43,7 +43,8 @@ c. Come back to your browser and try again.
 
 2. AFS issues
 The error::
-   "Spawn failed: Server at http://127.0.0.1:35083/user/btovar/ didn't respond in 30 seconds"
+
+    "Spawn failed: Server at http://127.0.0.1:35083/user/btovar/ didn't respond in 30 seconds"
 
 This could be related to AFS tokens, if jupyter logs (you can ask earth's system administrator for this) look like this::
     
