@@ -42,6 +42,50 @@
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+<div class="section" id="jupyterhub-service-on-earth">
+<h2>Jupyterhub Service on Earth<a class="headerlink" href="#jupyterhub-service-on-earth" title="Permalink to this headline">¶</a></h2>
+<p>This service can be accessed via <a class="reference external" href="https://earth.crc.nd.edu:49000">https://earth.crc.nd.edu:49000</a>
+Users need an account on this login node at the CRC.</p>
+</div>
+</div>
+<div class="section" id="frequently-asked-questions">
+<h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<p>1. Jupyter notebook database issues
+If you get the following error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Unexpected</span> <span class="n">error</span> <span class="k">while</span> <span class="n">saving</span> <span class="n">file</span><span class="p">:</span> <span class="n">coffea_tests</span><span class="o">/</span><span class="n">Untitled</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">database</span> <span class="n">disk</span> <span class="n">image</span> <span class="ow">is</span> <span class="n">malformed</span>
+</pre></div>
+</div>
+<ol class="loweralpha">
+<li><p>Log out of jupyterhub, so that the following process disappears</p></li>
+<li><p>Then, SSH into earth and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mv ~/.local/share/jupyter{,.bak}
+$ mv ~/.ipython{,.bak}
+</pre></div>
+</div>
+</li>
+<li><p>Come back to your browser and try again.</p></li>
+</ol>
+<p>2. AFS issues
+The error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Spawn failed: Server at http://127.0.0.1:35083/user/btovar/ didn&#39;t respond in 30 seconds&quot;</span>
+</pre></div>
+</div>
+<p>This could be related to AFS tokens, if jupyter logs (you can ask earth’s system administrator for this) look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apr</span> <span class="mi">14</span> <span class="mi">15</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">36</span> <span class="n">earth</span> <span class="n">bash</span><span class="p">:</span> <span class="p">[</span><span class="n">I</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">14</span> <span class="mi">15</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mf">36.700</span> <span class="n">JupyterHub</span> <span class="n">pages</span><span class="p">:</span><span class="mi">303</span><span class="p">]</span> <span class="n">btovar</span> <span class="ow">is</span> <span class="n">pending</span> <span class="n">spawn</span>
+<span class="n">Apr</span> <span class="mi">14</span> <span class="mi">15</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">36</span> <span class="n">earth</span> <span class="n">bash</span><span class="p">:</span> <span class="p">[</span><span class="n">I</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">14</span> <span class="mi">15</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mf">36.702</span> <span class="n">JupyterHub</span> <span class="n">log</span><span class="p">:</span><span class="mi">174</span><span class="p">]</span> <span class="mi">200</span> <span class="n">GET</span> <span class="o">/</span><span class="n">hub</span><span class="o">/</span><span class="n">spawn</span><span class="o">-</span><span class="n">pending</span><span class="o">/</span><span class="n">btovar</span> <span class="p">(</span><span class="n">btovar</span><span class="nd">@10</span><span class="o">.</span><span class="mf">63.2</span><span class="o">.</span><span class="mi">130</span><span class="p">)</span> <span class="mf">15.99</span><span class="n">ms</span>
+<span class="n">Apr</span> <span class="mi">14</span> <span class="mi">15</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">36</span> <span class="n">earth</span> <span class="n">bash</span><span class="p">:</span> <span class="ne">PermissionError</span><span class="p">:</span> <span class="p">[</span><span class="n">Errno</span> <span class="mi">13</span><span class="p">]</span> <span class="n">Permission</span> <span class="n">denied</span><span class="p">:</span> <span class="s1">&#39;/afs/crc.nd.edu/user/b/btovar/.jupyter/migrated&#39;</span>
+<span class="n">Apr</span> <span class="mi">14</span> <span class="mi">15</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">45</span> <span class="n">earth</span> <span class="n">bash</span><span class="p">:</span> <span class="n">tornado</span><span class="o">.</span><span class="n">web</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">:</span> <span class="n">HTTP</span> <span class="mi">500</span><span class="p">:</span> <span class="n">Internal</span> <span class="n">Server</span> <span class="n">Error</span> <span class="p">(</span><span class="n">Spawner</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">start</span> <span class="p">[</span><span class="n">status</span><span class="o">=</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span> <span class="n">The</span> <span class="n">logs</span> <span class="k">for</span> <span class="n">btovar</span> <span class="n">may</span> <span class="n">contain</span> <span class="n">details</span><span class="o">.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The solution is:</p>
+<ol class="loweralpha simple">
+<li><p>Logout from the current session</p></li>
+<li><p>Re-login</p></li>
+<li><p>Go to the “Token” tab</p></li>
+<li><p>Remove all current tokens</p></li>
+<li><p>Go to “Home” tab</p></li>
+<li><p>Click on “Start my server”</p></li>
+</ol>
 </div>
 
 
